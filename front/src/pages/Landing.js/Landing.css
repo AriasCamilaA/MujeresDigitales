@@ -10,6 +10,6 @@
 }
 
 .Landing section{
-    border-top: 2px dashed var(--moradoOscuro);
+    border-bottom: 2px dotted var(--moradoOscuro);
     padding: 4em 0;
 }

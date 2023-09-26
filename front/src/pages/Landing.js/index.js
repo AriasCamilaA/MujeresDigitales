@@ -3,7 +3,7 @@ import './Landing.css';
 
 const Landing = () => {
   return (
-    <div className='Landing'>
+    <div className='Landing w-75 m-auto'>
       <section className='container text-center'>
         <h1 className='text-center'>
         ¡Las Manzanas del Cuidado tienen todo lo que tú y tu familia necesitan!
