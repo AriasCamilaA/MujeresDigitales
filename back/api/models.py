@@ -1,5 +1,5 @@
-
 from django.db import models
+from django.contrib.auth.hashers import make_password 
 
 
 class Agenda(models.Model):
@@ -8,7 +8,6 @@ class Agenda(models.Model):
     id_persona_fk = models.ForeignKey('Personas', models.DO_NOTHING, db_column='id_persona_fk', blank=True, null=True)
 
     class Meta:
-         
         db_table = 'agenda'
 
 
@@ -17,7 +16,6 @@ class CategoriasServicios(models.Model):
     nombre_categoria = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-         
         db_table = 'categorias_servicios'
 
 
@@ -30,7 +28,6 @@ class Citas(models.Model):
     codigo_servicio = models.IntegerField(blank=True, null=True)
 
     class Meta:
-         
         db_table = 'citas'
 
 
@@ -43,7 +40,6 @@ class EstablecimientosServicios(models.Model):
     direccion_est_servicio = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-         
         db_table = 'establecimientos_servicios'
 
 
@@ -56,7 +52,6 @@ class Manzanas(models.Model):
     direccion = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-         
         db_table = 'manzanas'
 
 
@@ -66,7 +61,6 @@ class Municipios(models.Model):
     nombre_municipio = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-         
         db_table = 'municipios'
 
 
@@ -115,7 +109,6 @@ class TipoDocumento(models.Model):
     nombre_documento = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-         
         db_table = 'tipo_documento'
 
 
@@ -124,7 +117,6 @@ class TiposServicios(models.Model):
     nombre_tipo_servicio = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-         
         db_table = 'tipos_servicios'
 
 
@@ -134,6 +126,10 @@ class Usuarias(models.Model):
     password = models.CharField(max_length=200, blank=True, null=True)
     id_rol_fk = models.ForeignKey(Roles, models.DO_NOTHING, db_column='id_rol_fk', blank=True, null=True)
 
+    def save(self, *args, **kwargs):
+        if self.password:
+            self.password = make_password(self.password)
+
+        super().save(*args, **kwargs)
     class Meta:
-         
         db_table = 'usuarias'
