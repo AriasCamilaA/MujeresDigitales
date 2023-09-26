@@ -32,8 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'rest_framework',
-    'Api',
-    'corsheaders'
+    'api',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -84,8 +84,14 @@ WSGI_APPLICATION = 'back.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':  'mujeres_digitales',
+        #'PASSWORD': '666666',
+        'PASSWORD': '1234567890',
+        #'PASSWORD': '1021662854',
+        'USER': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
