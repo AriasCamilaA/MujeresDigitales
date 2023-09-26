@@ -8,3 +8,8 @@
 .card{
     width: 18em;
 }
+
+.Landing section{
+    border-top: 2px dashed var(--moradoOscuro);
+    padding: 4em 0;
+}

@@ -3,15 +3,14 @@ import './Landing.css';
 
 const Landing = () => {
   return (
-    <div py-2>
+    <div className='Landing'>
       <section className='container text-center'>
-        <h1>
+        <h1 className='text-center'>
         ¡Las Manzanas del Cuidado tienen todo lo que tú y tu familia necesitan!
         </h1>
         <p>
         Aquí puedes estudiar, ejercitarte, crear tu propio negocio, conectarte con oportunidades de empleo y mucho más, mientras cuidamos a quienes tú cuidas.
         </p>
-      </section>
       <div className='cardsContainer'>
         <div class="card text-white bg_moradoClaro">
           <img class="card-img-top" src="img/manzana-cuidado-bosa.jpg" alt='Comunicación'/>
@@ -44,6 +43,7 @@ const Landing = () => {
           </div>
         </div>
       </div>
+      </section>
       <section className="container mt-4 text-center">
         <h2>¿Quiénes viven en la Manzana?</h2>
         <p>
@@ -54,7 +54,12 @@ const Landing = () => {
         </p>
         <span>(Fuente: Censo DANE 2018)</span>
       </section>
-      
+      <section className="container mt-4 text-center">
+        <h1>
+          Ubicaciones
+        </h1>
+        <img src='img/info.jpeg' alt='Ubicaciones' className='w-100'/>
+      </section>
     </div>
   )
 }
