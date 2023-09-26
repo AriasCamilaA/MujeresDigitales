@@ -106,7 +106,7 @@ class Servicios(models.Model):
     descripcion_servicio = models.CharField(max_length=500, blank=True, null=True)
 
     class Meta:
-         
+        
         db_table = 'servicios'
 
 
