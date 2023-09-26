@@ -1,10 +1,10 @@
 :root{
-  --moradoClaro: #784f9e;
-  --moradoOscuro: #57447c;
+  --moradoClaro: #57447c;
+  --moradoOscuro: #6c309f;
   --verde: #20c626;
   --naranja: #f29828;
-  --moradoClaroHover: #784f9e4e;
-  --moradoOscuroHover: #57447c4e;
+  --moradoClaroHover: #57447c4e;
+  --moradoOscuroHover: #6c309f4e;
   --verdeHover: #20c6264e;
   --naranjaHover: #f298284e;
   --blanco: #ffffff;
@@ -15,6 +15,7 @@
 * {
   box-sizing: border-box;
   font-family: 'Work Sans', sans-serif;
+  color: var(--texto);
 }
 
 h1, h2, h3, h4, h5{
@@ -33,7 +34,6 @@ h2{
 
 p{
   font-size: 1.3em;
-  color: var(--texto);
 }
 
 .menuContainer{
@@ -52,7 +52,6 @@ p{
   height: 100vh;
   width: 80vw;
   overflow: auto;
-  padding-top: 1em;
 }
 
 /* Background color */

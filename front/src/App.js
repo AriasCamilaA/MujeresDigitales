@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Landing from './pages/Landing.js';
-import './App.css';
 import NavLateralSimple from './components/NavLateralSimple/index.js';
+import Landing from './pages/Landing.js';
+import Login from './pages/Login/index.js';
+import Register from './pages/Register/index.js';
+import './App.css';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <div className='pageContainer'>
           <Routes>
             <Route path='/Landing' element={<Landing/>}/>
+            <Route path='/Login' element={<Login/>}/>
+            <Route path='/Registrarse' element={<Register/>}/>
           </Routes>
         </div>
       </div>
