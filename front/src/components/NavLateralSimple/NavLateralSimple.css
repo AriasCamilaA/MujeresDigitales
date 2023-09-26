@@ -1,0 +1,28 @@
+.navLateral{
+    height: 100vh;
+}
+
+.navSuperior {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 100%;
+}  
+
+.logo{
+    color: var(--verde);
+}
+
+.titleNav{
+    margin: auto;
+    color: var(--blanco);
+    text-shadow: 2px 2px 2px var(--naranja);
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    min-width: 300px;
+    width: 30vh;
+    border-top: 1px dashed var(--moradoOscuro);
+}
