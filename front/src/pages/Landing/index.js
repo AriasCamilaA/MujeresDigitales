@@ -30,9 +30,9 @@ const Landing = () => {
           Tiempo y servicio para las mujeres
         </p>
         <div className='cardsContainer'>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title text-white bg_moradoClaro rounded">
+          <div className="card">
+            <div className="card-body">
+              <h4 className="card-title text-white bg_moradoClaro rounded">
                 <i className='fa-solid fa-question color_blanco'></i>
                 Qué son
               </h4>
@@ -42,9 +42,9 @@ const Landing = () => {
               </p>
             </div>
           </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title text-white bg_moradoClaro rounded">
+          <div className="card">
+            <div className="card-body">
+              <h4 className="card-title text-white bg_moradoClaro rounded">
                 <i className='fa-solid fa-compass color_blanco'></i>
                 Dónde encontrarlas
               </h4>
@@ -62,9 +62,9 @@ const Landing = () => {
               </p>
             </div>
           </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title text-white bg_moradoClaro rounded">
+          <div className="card">
+            <div className="card-body">
+              <h4 className="card-title text-white bg_moradoClaro rounded">
                 <i className='fa-solid fa-compass color_blanco'></i>
                 Servicios
               </h4>
@@ -73,9 +73,9 @@ const Landing = () => {
               </p>
             </div>
           </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title text-white bg_moradoClaro rounded">
+          <div className="card">
+            <div className="card-body">
+              <h4 className="card-title text-white bg_moradoClaro rounded">
                 <i className='fa-solid fa-compass color_blanco'></i>
                 Asistencia en casa
               </h4>
@@ -84,9 +84,9 @@ const Landing = () => {
               </p>
             </div>
           </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title text-white bg_moradoClaro rounded">
+          <div className="card">
+            <div className="card-body">
+              <h4 className="card-title text-white bg_moradoClaro rounded">
                 <i className='fa-solid fa-compass color_blanco'></i>
                 Buses del cuidado
               </h4>

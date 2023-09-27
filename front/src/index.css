@@ -52,6 +52,9 @@ p{
 .bg_naranja{
   background-color: var(--naranja);
 }
+.bg_gris{
+  background-color: var(--gris);
+}
 
 
 /* Text color */

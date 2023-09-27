@@ -1,0 +1,24 @@
+.NavSuperior{
+    padding-top: 0 !important;
+}
+
+.NavSuperior .logo{
+    height: 3.5em;
+}
+
+.NavSuperior .opciones{
+    display: flex;
+    gap: 1em;
+    justify-content: flex-end;
+}
+
+@media (max-width: 992px){
+    .NavSuperior .opciones{
+        display: flex;
+        gap: 1em;
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+}
+
