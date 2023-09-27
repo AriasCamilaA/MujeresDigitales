@@ -50,7 +50,7 @@ CREATE TABLE SERVICIOS(
 
 
 CREATE TABLE PERSONAS(  
-id_persona int auto_increment not null,     
+id_persona int  not null,     
 id_tipo_documento_fk int,     
 id_usuaria int,     
 nombres_persona varchar(50),  
