@@ -78,7 +78,20 @@ const Register = () => {
         id_usuaria:null,
       }
       registrarUsuario(usuaria, persona);
+      setEmail("");
+      setId_persona("");
+      setId_tipo_documento_fk("");
+      setId_usuaria("");
+      setNombres_persona("");
+      setApellidos_personas("");
+      setTelefono_persona("");
+      setCiudad("");
+      setDireccion("");
+      setId_servicios_preferencia_uno("");
+      setId_servicios_preferencia_dos("");
     }
+    setPassword("");
+
   };
 
   
@@ -126,10 +139,10 @@ const registrarUsuario = (_usuaria, _persona) => {
       </div>
       <div className="card-body">
         <div className="text-center">
-          <div className="d-flex gap-2">
-            <div className="input-group mb-3 w-50">
+          <div className="d-flex gap-2 inputsContainer">
+            <div className="input-group mb-3">
               <span className="input-group-text">
-                <i className="fa-solid fa-hashtag pe-2"></i>
+                <i className="fa-solid fa-id-card pe-2"></i>
               </span>
               <select
                 className="form-select"
@@ -149,7 +162,7 @@ const registrarUsuario = (_usuaria, _persona) => {
               {/* En cada input vamos obtniendo y modificando el estado relacionado al campo del módelo correspondiente */}
               <input type="number" className="form-control" placeholder="000000..." min="100000" maxLength={10} value={id_persona} onChange={(e)=>setId_persona(e.target.value)} required/>
             </div>
-            <div className="input-group mb-3 w-50">
+            <div className="input-group mb-3">
               <span className="input-group-text">
                 <i className="fa-solid fa-phone pe-2"></i>
                 Teléfono:
@@ -157,34 +170,54 @@ const registrarUsuario = (_usuaria, _persona) => {
               <input type="number" className="form-control" placeholder="1234567890" min="1000000000" maxLength={10} value={telefono_persona} onChange={(e)=>setTelefono_persona(e.target.value)} required/>
             </div>
           </div>
-        <div className="input-group mb-3">
-          <span className="input-group-text">
-            <i className="fa-solid fa-user pe-2"></i>
-          </span>
-          <input type="text" className="form-control" placeholder="Nombres" value={nombres_persona} onChange={(e)=>setNombres_persona(e.target.value)} required/>
-          <input type="text" className="form-control" placeholder="Apellidos" value={apellidos_personas} onChange={(e)=>setApellidos_personas(e.target.value)} required/>
-        </div>
-        <div className="input-group mb-3">
-          <span className="input-group-text">
-            <i className="fa-solid fa-envelope pe-2"></i>
-            Correo: 
-          </span>
-          <input type="email" className="form-control" placeholder="micorreo@correo.com" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
-          <span className="input-group-text">
-            <i className="fa-solid fa-lock pe-2"></i>
-            Contraseña: 
-          </span>
-          <input type="password" className="form-control" placeholder="MiContraseña" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
-        </div>
-
-        <div className="input-group mb-3">
-          <span className="input-group-text">
-            <i className="fa-solid fa-compass pe-2"></i>
-            Ciudad: 
-          </span>
-          <input type="text" className="form-control" placeholder="Ciudad" value={ciudad} onChange={(e)=>setCiudad(e.target.value)} required/>
-          <input type="text" className="form-control" placeholder="Dirección" value={direccion} onChange={(e)=>setDireccion(e.target.value)} required/>
-        </div>
+          <div className="d-flex gap-2 inputsContainer">
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-user pe-2"></i>
+                Nombres:
+              </span>
+              <input type="text" className="form-control" placeholder="Nombres" value={nombres_persona} onChange={(e)=>setNombres_persona(e.target.value)} required/>
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-user pe-2"></i>
+                  Apellidos:
+              </span>
+              <input type="text" className="form-control" placeholder="Apellidos" value={apellidos_personas} onChange={(e)=>setApellidos_personas(e.target.value)} required/>
+            </div>
+          </div>
+          <div className="d-flex gap-2 inputsContainer">
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-envelope pe-2"></i>
+                Correo: 
+              </span>
+              <input type="email" className="form-control" placeholder="micorreo@correo.com" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-lock pe-2"></i>
+                Contraseña: 
+              </span>
+              <input type="password" className="form-control" placeholder="MiContraseña" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
+            </div>
+          </div>
+          <div className="d-flex gap-2 inputsContainer">
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-compass pe-2"></i>
+                Ciudad: 
+              </span>
+              <input type="text" className="form-control" placeholder="Ciudad" value={ciudad} onChange={(e)=>setCiudad(e.target.value)} required/>
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i class="fa-solid fa-location-crosshairs pe-2"></i>
+                Dirección: 
+              </span>
+              <input type="text" className="form-control" placeholder="Dirección" value={direccion} onChange={(e)=>setDireccion(e.target.value)} required/>
+            </div>
+          </div>
           <div className="d-grid">
             <button type="submit" className="btn btn_outline_moradoOscuro" onClick={()=>validar()}>Registrarse <i className="fas fa-sign-in-alt"></i></button>
           </div>
