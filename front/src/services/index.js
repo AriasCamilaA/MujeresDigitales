@@ -139,6 +139,91 @@ const apiService = {
         }
         
     },
+    getCategoriasServicios : async () => {
+        try {
+            const url_servicios = url + "categorias_servicios/";
+            const response = await axios.get(url_servicios);
+            const data = response.data;
+            // console.log(data)
+            return data;
+        } catch (error) {
+            console.error("API ERROR: CATEGORÍA SERVICIOS: "+error);
+            throw error;
+        }
+        
+    },
+    
+    registrarCategoriaServicio : async (categoriaServicio) => {
+        try {
+            categoriaServicio.estado = 0;
+            const url_servicios = url + "categorias_servicios/";
+            const response = await axios.post(url_servicios, categoriaServicio);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: REGISTRAR CATEGORÍA SERVICIO: "+error);
+            throw error;
+        }
+        
+    },
+
+    editarCategoriaServicio : async (categoriaServicio) => {
+        try {
+            const id = categoriaServicio.id_categoria;
+            const url_municipios = url + "categorias_servicios/"+id+"/";
+            const response = await axios.put(url_municipios, categoriaServicio);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: ACTUALIZAR CATEGORÍA SERVICIO: "+error);
+            throw error;
+        }
+        
+    },
+
+    getTiposServicios : async () => {
+        try {
+            const url_servicios = url + "tipos_servicios/";
+            const response = await axios.get(url_servicios);
+            const data = response.data;
+            // console.log(data)
+            return data;
+        } catch (error) {
+            console.error("API ERROR: TIPO SERVICIOS: "+error);
+            throw error;
+        }
+        
+    },
+    
+    registrarTipoServicio : async (tipoServicio) => {
+        try {
+            tipoServicio.estado = 0;
+            const url_servicios = url + "tipos_servicios/";
+            const response = await axios.post(url_servicios, tipoServicio);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: REGISTRAR TIPO SERVICIO: "+error);
+            throw error;
+        }
+        
+    },
+
+    editarTipoServicio : async (tipoServicio) => {
+        try {
+            const id = tipoServicio.id_tipo_servicio;
+            const url_municipios = url + "tipos_servicios/"+id+"/";
+            const response = await axios.put(url_municipios, tipoServicio);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: ACTUALIZAR TIPO SERVICIO: "+error);
+            throw error;
+        }
+        
+    },
+
+
 }
 
 export default apiService;

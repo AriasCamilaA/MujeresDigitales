@@ -5,8 +5,10 @@ import Register from './pages/Register/index.js';
 import ListUsuarios from './pages/Usuarios/index.js';
 import NavSuperior from './components/NavSuperior/index.js';
 import Footer from './components/Footer/index.js';
-import './App.css';
 import ListMunicipios from './pages/Municipios/index.js';
+import CategoriasServicios from './pages/Servicios/CategoriasServicios.js';
+import TiposServicios from './pages/Servicios/TiposServicios.js';
+import './App.css';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         {/* Rutas ya logueado */}
         <Route path="/Usuarios" element={<ListUsuarios />} />
         <Route path="/Municipios" element={<ListMunicipios />} />
+        <Route path="/CategoriasServicios" element={<CategoriasServicios />} />
+        <Route path="/TiposServicios" element={<TiposServicios />} />
 
         {/* Envuelve Footer en un Route */}
       </Routes>
