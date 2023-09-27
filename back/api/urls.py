@@ -13,7 +13,7 @@ from .Controllers.citas import citasCRUD
 from .Controllers.establecimientos_servicios import establecimientosCRUD
 from .Controllers.agenda import agendaCRUD
 #from .Controllers.Auth.login import login
-#from .Reportes.excelView import reportExcel
+from .Reportes.excelView import reportExcel
 
 
 router = DefaultRouter()
@@ -32,5 +32,5 @@ router.register(r'agenda',agendaCRUD )
 urlpatterns=[
 path('',include(router.urls)),
 #path('login/',login, name="login"),
-#path('reporte/<str:modelo>/', reportExcel, name="reporte")
+path('reporte/<str:nombre_modelo>/', reportExcel, name="reporte")
 ]
