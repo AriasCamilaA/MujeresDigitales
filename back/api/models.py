@@ -1,21 +1,31 @@
+# This is an auto-generated Django model module.
+# You'll have to do the following manually to clean this up:
+#   * Rearrange models' order
+#   * Make sure each model has one field with primary_key=True
+#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
+#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
+# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-from django.contrib.auth.hashers import make_password 
 
 
 class Agenda(models.Model):
     id_agenda = models.AutoField(primary_key=True)
     id_cita_fk = models.ForeignKey('Citas', models.DO_NOTHING, db_column='id_cita_fk', blank=True, null=True)
     id_persona_fk = models.ForeignKey('Personas', models.DO_NOTHING, db_column='id_persona_fk', blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
     class Meta:
+    
         db_table = 'agenda'
 
 
 class CategoriasServicios(models.Model):
     id_categoria = models.AutoField(primary_key=True)
     nombre_categoria = models.CharField(max_length=50, blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
     class Meta:
+    
         db_table = 'categorias_servicios'
 
 
@@ -26,8 +36,10 @@ class Citas(models.Model):
     dia_cita = models.DateField(blank=True, null=True)
     hora_cita = models.TimeField(blank=True, null=True)
     codigo_servicio = models.IntegerField(blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
     class Meta:
+    
         db_table = 'citas'
 
 
@@ -38,8 +50,10 @@ class EstablecimientosServicios(models.Model):
     nombre_est_servicio = models.CharField(max_length=50, blank=True, null=True)
     responsable_est_servicio = models.CharField(max_length=50, blank=True, null=True)
     direccion_est_servicio = models.CharField(max_length=50, blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
     class Meta:
+    
         db_table = 'establecimientos_servicios'
 
 
@@ -50,8 +64,10 @@ class Manzanas(models.Model):
     nombre_manzana = models.CharField(max_length=50, blank=True, null=True)
     localidad = models.CharField(max_length=50, blank=True, null=True)
     direccion = models.CharField(max_length=50, blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
     class Meta:
+    
         db_table = 'manzanas'
 
 
@@ -59,13 +75,15 @@ class Municipios(models.Model):
     id_municipio = models.AutoField(primary_key=True)
     codigo_municipio = models.IntegerField(blank=True, null=True)
     nombre_municipio = models.CharField(max_length=50, blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
     class Meta:
+    
         db_table = 'municipios'
 
 
 class Personas(models.Model):
-    id_persona = models.AutoField(primary_key=True)
+    id_persona = models.IntegerField(primary_key=True)
     id_tipo_documento_fk = models.ForeignKey('TipoDocumento', models.DO_NOTHING, db_column='id_tipo_documento_fk', blank=True, null=True)
     id_usuaria = models.ForeignKey('Usuarias', models.DO_NOTHING, db_column='id_usuaria', blank=True, null=True)
     nombres_persona = models.CharField(max_length=50, blank=True, null=True)
@@ -76,18 +94,20 @@ class Personas(models.Model):
     ocupacion = models.CharField(max_length=50, blank=True, null=True)
     id_servicios_preferencia_uno = models.IntegerField(blank=True, null=True)
     id_servicios_preferencia_dos = models.IntegerField(blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
     class Meta:
-         
+    
         db_table = 'personas'
 
 
 class Roles(models.Model):
     id_rol = models.AutoField(primary_key=True)
     nombre_rol = models.CharField(max_length=50, blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
     class Meta:
-         
+    
         db_table = 'roles'
 
 
@@ -98,25 +118,30 @@ class Servicios(models.Model):
     codigo_servicio = models.IntegerField(blank=True, null=True)
     nombre_servicio = models.CharField(max_length=50, blank=True, null=True)
     descripcion_servicio = models.CharField(max_length=500, blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        
+    
         db_table = 'servicios'
 
 
 class TipoDocumento(models.Model):
     id_tipo_documento = models.AutoField(primary_key=True)
     nombre_documento = models.CharField(max_length=50, blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
     class Meta:
+    
         db_table = 'tipo_documento'
 
 
 class TiposServicios(models.Model):
     id_tipo_servicio = models.AutoField(primary_key=True)
     nombre_tipo_servicio = models.CharField(max_length=50, blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
     class Meta:
+    
         db_table = 'tipos_servicios'
 
 
@@ -125,11 +150,8 @@ class Usuarias(models.Model):
     email = models.CharField(max_length=50, blank=True, null=True)
     password = models.CharField(max_length=200, blank=True, null=True)
     id_rol_fk = models.ForeignKey(Roles, models.DO_NOTHING, db_column='id_rol_fk', blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
 
-    def save(self, *args, **kwargs):
-        if self.password:
-            self.password = make_password(self.password)
-
-        super().save(*args, **kwargs)
     class Meta:
+    
         db_table = 'usuarias'
