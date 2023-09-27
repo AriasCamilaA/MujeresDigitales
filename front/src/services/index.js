@@ -16,7 +16,20 @@ const apiService = {
         
     },
 
-    getRegistrarUsuario : async (usuario) => {
+    getPersonas : async () => {
+        try {
+            const url_personas = url + "personas/";
+            const response = await axios.get(url_personas);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: USUARIOS: "+error);
+            throw error;
+        }
+        
+    },
+
+    registrarUsuario : async (usuario) => {
         try {
             const url_registrarUsuario = url + "usuarias/";
             const response = await axios.post(url_registrarUsuario, usuario);
@@ -29,7 +42,7 @@ const apiService = {
         
     },
     
-    getRegistrarPersona : async (persona) => {
+    registrarPersona : async (persona) => {
         try {
             const url_registrarPersona = url + "personas/";
             const response = await axios.post(url_registrarPersona, persona);

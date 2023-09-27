@@ -182,18 +182,18 @@ p{
 
 /* btns hover*/
 .btn_outline_moradoClaro:hover{
-  background-color: var(--moradoClaroHover);
+  background-color: var(--moradoClaro);
   color: var(--blanco);
 }
 .btn_outline_moradoOscuro:hover{
-  background-color: var(--moradoOscuroHover);
+  background-color: var(--moradoOscuro);
   color: var(--blanco);
 }
 .btn_outline_verde:hover{
-  background-color: var(--verdeHover);
+  background-color: var(--verde);
   color: var(--blanco);
 }
 .btn_outline_naranja:hover{
-  background-color: var(--naranjaHover);
+  background-color: var(--naranja);
   color: var(--blanco);
 }

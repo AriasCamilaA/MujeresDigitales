@@ -23,12 +23,11 @@ class TipoDocumentoSerializer(serializers.ModelSerializer):
 
 
 class PersonasSerializer(serializers.ModelSerializer):
-    tipo_documento = TipoDocumentoSerializer(source = 'id_servicio_fk' , read_only = True)
-    usuaria = UsuariasSerializer(source = 'id_usuaria_fk' , read_only = True)
+    tipo_documento = TipoDocumentoSerializer(source='id_tipo_documento_fk', read_only=True)
+    usuaria = UsuariasSerializer(source='id_usuaria', read_only=True)
     class Meta:
         model = Personas
         fields = '__all__'
-
 
 class TiposServiciosSerializer(serializers.ModelSerializer):
 

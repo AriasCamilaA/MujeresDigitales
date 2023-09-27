@@ -59,7 +59,8 @@ const Register = () => {
     }else{
       const usuaria = {
         email:email,
-        password:password
+        password:password,
+        id_rol_fk:1,
       }
       const persona = {
         id_persona:id_persona,
@@ -82,13 +83,13 @@ const Register = () => {
   // Función para registrar nuevo usuario
 const registrarUsuario = (_usuaria, _persona) => {
   try {
-    apiService.getRegistrarUsuario(_usuaria)
+    apiService.registrarUsuario(_usuaria)
       .then((data) => {
         // Asigna el ID de usuaria a la persona
         _persona.id_usuaria = data.id_usuaria;
 
         // Registra la persona después de obtener el ID de usuaria
-        apiService.getRegistrarPersona(_persona)
+        apiService.registrarPersona(_persona)
           .then(() => {
             showAlert("success", "Usuario creado correctamente");
           })

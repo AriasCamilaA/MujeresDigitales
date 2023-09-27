@@ -4,6 +4,7 @@ import Landing from './pages/Landing.js';
 import Login from './pages/Login/index.js';
 import Register from './pages/Register/index.js';
 import './App.css';
+import ListUsuarios from './pages/Usuarios/ListUsuarios.js';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path='/Landing' element={<Landing/>}/>
             <Route path='/Login' element={<Login/>}/>
             <Route path='/Registrarse' element={<Register/>}/>
+            <Route path='/Usuarios' element={<ListUsuarios/>}/>
           </Routes>
         </div>
       </div>
