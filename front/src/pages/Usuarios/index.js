@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { showAlert } from '../../Utilities';
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
 import apiService from "../../services";
 import './index.css'
-import { showAlert } from '../../Utilities';
 
 const ListUsuarios = () => {
     // state para almacenar usuarios
@@ -177,21 +179,49 @@ const ListUsuarios = () => {
         setPassword("");
     };
 
+    // Función para registrar nuevo usuario
+    const registrarUsuario = (_usuaria, _persona) => {
+        try {
+            apiService.registrarUsuario(_usuaria)
+            .then((data) => {
+                // Asigna el ID de usuaria a la persona
+                _persona.id_usuaria = data.id_usuaria;
     
+                // Registra la persona después de obtener el ID de usuaria
+                apiService.registrarPersona(_persona)
+                .then(() => {
+                    showAlert("success", "Usuario creado correctamente");
+                    listarUsuarios();
+                    document.getElementById("btn_cerrar").click();
+                })
+                .catch((e) => {
+                    showAlert("error", "No se pudo crear la persona");
+                    console.error(e);
+                });
+            })
+            .catch((e) => {
+                showAlert("error", "No se pudo crear el usuario");
+                console.error(e);
+            });
+        } catch (error) {
+            console.error("No se pudo crear Usuario "+ error)
+        }
+    }
+
     // Función para registrar nuevo usuario
     const modificarUsuario = (_usuaria, _persona) => {
     try {
         apiService.editarUsuario(_usuaria)
-        .then((data) => {
-            // Registra la persona después de obtener el ID de usuaria
+        .then(() => {
             apiService.editarPersona(_persona)
             .then(() => {
-                showAlert("success", "Usuario creado correctamente");
+                showAlert("success", "Usuario actualizado correctamente");
                 listarUsuarios();
                 document.getElementById("btn_cerrar").click();
             })
             .catch((e) => {
                 showAlert("error", "No se pudo actualizar la persona");
+                document.getElementById("btn_cerrar").click();
                 console.error(e);
             });
         })
@@ -200,37 +230,56 @@ const ListUsuarios = () => {
             console.error(e);
         });
     } catch (error) {
-        console.error("No se pudo crear Usuario "+ error)
+        console.error("No se pudo Actualizar Usuario "+ error)
     }
     }
-    // Función para registrar nuevo usuario
-    const registrarUsuario = (_usuaria, _persona) => {
-    try {
-        apiService.registrarUsuario(_usuaria)
-        .then((data) => {
-            // Asigna el ID de usuaria a la persona
-            _persona.id_usuaria = data.id_usuaria;
 
-            // Registra la persona después de obtener el ID de usuaria
-            apiService.registrarPersona(_persona)
-            .then(() => {
-                showAlert("success", "Usuario creado correctamente");
-                listarUsuarios();
-                document.getElementById("btn_cerrar").click();
-            })
-            .catch((e) => {
-                showAlert("error", "No se pudo crear la persona");
-                console.error(e);
-            });
-        })
-        .catch((e) => {
-            showAlert("error", "No se pudo crear el usuario");
-            console.error(e);
-        });
-    } catch (error) {
-        console.error("No se pudo crear Usuario "+ error)
-    }
-    }
+// Función para eliminar (cambiar estado) a el Usuario
+const eliminarUsuario = (_id_usuaria, _id_persona) => {
+    const _usuario = { id_usuaria: _id_usuaria, estado: 1 };
+    const _persona = { id_persona: _id_persona, estado: 1 };
+
+    // Mostrar una confirmación con SweetAlert2
+    const MySwal = withReactContent(Swal);
+    MySwal.fire({
+        title: '¿Estás seguro?',
+        text: 'Esta acción eliminará el usuario. ¿Quieres continuar?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si el usuario confirma, realizar la eliminación
+            try {
+                apiService.editarUsuario(_usuario)
+                    .then(() => {
+                        apiService.editarPersona(_persona)
+                            .then(() => {
+                                showAlert("success", "Usuario eliminado correctamente");
+                                listarUsuarios();
+                                document.getElementById("btn_cerrar").click();
+                            })
+                            .catch((e) => {
+                                showAlert("error", "No se pudo eliminar la persona");
+                                document.getElementById("btn_cerrar").click();
+                                console.error(e);
+                            });
+                    })
+                    .catch((e) => {
+                        showAlert("error", "No se pudo eliminar el usuario");
+                        console.error(e);
+                    });
+            } catch (error) {
+                console.error("No se pudo eliminar Usuario " + error)
+            }
+        }
+    });
+}
+
+
 
     return (
     <>
@@ -250,47 +299,57 @@ const ListUsuarios = () => {
                 <table className="table table-hover">
                     <thead>
                         <tr className='border_moradoOscuro'>
-                            <th scope="col">Tipo Doc</th>
-                            <th scope="col">Número</th>
-                            <th scope="col">Nombres</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Teléfono</th>
-                            <th scope="col">Opciones</th>
+                            <th className="text-center" scope="col">Tipo Doc</th>
+                            <th className="text-center" scope="col">Número</th>
+                            <th className="text-center" scope="col">Nombres</th>
+                            <th className="text-center" scope="col">Correo</th>
+                            <th className="text-center" scope="col">Teléfono</th>
+                            <th className="text-center" scope="col">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {usuarios.map((i) => (
-                        <tr key={i.id_persona}>
-                            <td>{i.tipo_documento.nombre_documento ? i.tipo_documento.nombre_documento : ""}</td>
-                            <td>{i.id_persona}</td>
-                            <td>{i.nombres_persona} {i.apellidos_personas}</td>
-                            <td>{i.usuaria.email ? i.usuaria.email : ""}</td>
-                            <td>{i.telefono_persona}</td>
-                            <td>
-                                <button 
-                                    className='btn_naranja'
-                                    onClick={()=>openModal(
-                                        2,
-                                        i.usuaria.id_usuaria,
-                                        i.usuaria.email,
-                                        i.usuaria.password,
-                                        i.id_persona,
-                                        i.id_tipo_documento_fk,
-                                        i.nombres_persona,
-                                        i.apellidos_personas,
-                                        i.telefono_persona,
-                                        i.ciudad,
-                                        i.direccion,
-                                        i.usuaria.id_rol_fk
-                                    )}
-                                    data-bs-toggle="modal" 
-                                    data-bs-target="#nuevoEditarUsuario"
-                                >
-                                    <i className='fa-solid fa-edit btnEditar color_gris'></i>
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
+                    {usuarios.map((i) => {
+                        if (i.estado === 0) {
+                            return (
+                                <tr key={i.id_persona}>
+                                    <td>{i.tipo_documento.nombre_documento ? i.tipo_documento.nombre_documento : ""}</td>
+                                    <td>{i.id_persona}</td>
+                                    <td>{i.nombres_persona} {i.apellidos_personas}</td>
+                                    <td>{i.usuaria.email ? i.usuaria.email : ""}</td>
+                                    <td>{i.telefono_persona}</td>
+                                    <td className='d-flex gap-2 justify-content-center'>
+                                        <button
+                                            className='btn btn-warning'
+                                            onClick={() => openModal(
+                                                2,
+                                                i.usuaria.id_usuaria,
+                                                i.usuaria.email,
+                                                i.usuaria.password,
+                                                i.id_persona,
+                                                i.id_tipo_documento_fk,
+                                                i.nombres_persona,
+                                                i.apellidos_personas,
+                                                i.telefono_persona,
+                                                i.ciudad,
+                                                i.direccion,
+                                                i.usuaria.id_rol_fk
+                                            )}
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#nuevoEditarUsuario"
+                                        >
+                                            <i className='fa-solid fa-edit btnEditar color_blanco'></i>
+                                        </button>
+                                        <button className='btn btn-danger' onClick={() => eliminarUsuario(i.usuaria.id_usuaria, i.id_persona)}>
+                                            <i className='fa-solid fa-trash color_blanco'></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            );
+                        } else {
+                            return null;
+                        }
+                    })}
+
 
 
                     </tbody>
@@ -330,7 +389,7 @@ const ListUsuarios = () => {
                                 ))}
                             </select>
                             {/* En cada input vamos obtniendo y modificando el estado relacionado al campo del módelo correspondiente */}
-                            <input type="number" className="form-control" placeholder="000000..." min="100000" maxLength={10} value={id_persona} onChange={(e)=>setId_persona(e.target.value)} required/>
+                            <input type="number" disabled={modalOption === 2} className="form-control" placeholder="000000..." min="100000" maxLength={10} value={id_persona} onChange={(e)=>setId_persona(e.target.value)} required/>
                             </div>
                             <div className="input-group mb-3">
                             <span className="input-group-text">
