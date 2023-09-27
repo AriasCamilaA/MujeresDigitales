@@ -30,6 +30,8 @@ const Register = () => {
       apiService.getTiposDocumentos()
         .then((response)=>{
           setTiposDocumentos(response);
+        }).catch((e)=>{
+          console.error(e);
         })
     } catch (error) {
       console.error("No se pudo acceder a los tipos de documentos"+error)
@@ -76,7 +78,20 @@ const Register = () => {
         id_usuaria:null,
       }
       registrarUsuario(usuaria, persona);
+      setEmail("");
+      setId_persona("");
+      setId_tipo_documento_fk("");
+      setId_usuaria("");
+      setNombres_persona("");
+      setApellidos_personas("");
+      setTelefono_persona("");
+      setCiudad("");
+      setDireccion("");
+      setId_servicios_preferencia_uno("");
+      setId_servicios_preferencia_dos("");
     }
+    setPassword("");
+
   };
 
   
@@ -116,78 +131,100 @@ const registrarUsuario = (_usuaria, _persona) => {
 
   // Component html
   return (
-    <div className="containerRegister d-flex justify-content-center align-items-center h-100">
+    <div className="Register">
     <div className="overlay"></div>
     <div className="card border_moradoOscuro w-75">
       <div className="card-header p-2 bg_moradoOscuro color_blanco">
-        <h3 className="text-center">Registrarse</h3>
+        <h3 className="text-center mt-2">Registrarse</h3>
       </div>
       <div className="card-body">
         <div className="text-center">
-        <div className="input-group mb-3">
-          <span className="input-group-text">
-            <i className="fa-solid fa-user pe-2"></i>
-            Tipo Documento:
-          </span>
-          <select
-            className="form-select"
-            value={id_tipo_documento_fk}
-            onChange={(e) => setId_tipo_documento_fk(e.target.value)}
-          >
-            <option value="" disabled>
-              Tipo de Documento
-            </option>
-            {tiposDocumentos.map((tipo) => (
-              <option key={tipo.id_tipo_documento} value={tipo.id_tipo_documento}>
-                {tipo.nombre_documento}
-              </option>
-            ))}
-          </select>
-          <span className="input-group-text">
-            <i className="fa-solid fa-hashtag pe-2"></i>
-            Documento:
-          </span>
-          {/* En cada input vamos obtniendo y modificando el estado relacionado al campo del módelo correspondiente */}
-          <input type="number" className="form-control" placeholder="000000..." min="100000" maxLength={10} value={id_persona} onChange={(e)=>setId_persona(e.target.value)} required/>
-        </div>
-        <div className="input-group mb-3">
-          <span className="input-group-text">
-            <i className="fa-solid fa-user pe-2"></i>
-            Nombre:
-          </span>
-          <input type="text" className="form-control" placeholder="Nombres" value={nombres_persona} onChange={(e)=>setNombres_persona(e.target.value)} required/>
-          <input type="text" className="form-control" placeholder="Apellidos" value={apellidos_personas} onChange={(e)=>setApellidos_personas(e.target.value)} required/>
-        </div>
-        <div className="input-group mb-3">
-          <span className="input-group-text">
-            <i className="fa-solid fa-envelope pe-2"></i>
-            Correo: 
-          </span>
-          <input type="email" className="form-control" placeholder="micorreo@correo.com" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
-          <span className="input-group-text">
-            <i className="fa-solid fa-lock pe-2"></i>
-            Contraseña: 
-          </span>
-          <input type="password" className="form-control" placeholder="MiContraseña" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
-        </div>
-
-        <div className="input-group mb-3">
-          <span className="input-group-text">
-            <i className="fa-solid fa-phone pe-2"></i>
-            Teléfono:
-          </span>
-          <input type="number" className="form-control" placeholder="1234567890" min="1000000000" maxLength={10} value={telefono_persona} onChange={(e)=>setTelefono_persona(e.target.value)} required/>
-          <span className="input-group-text">
-            <i className="fa-solid fa-compass pe-2"></i>
-            Ciudad: 
-          </span>
-          <input type="text" className="form-control" placeholder="Ciudad" value={ciudad} onChange={(e)=>setCiudad(e.target.value)} required/>
-          <input type="text" className="form-control" placeholder="Dirección" value={direccion} onChange={(e)=>setDireccion(e.target.value)} required/>
-        </div>
+          <div className="d-flex gap-2 inputsContainer">
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-id-card pe-2"></i>
+              </span>
+              <select
+                className="form-select"
+                value={id_tipo_documento_fk}
+                onChange={(e) => setId_tipo_documento_fk(e.target.value)}
+              >
+                <option value="" disabled>
+                  Tipo de Documento
+                </option>
+                {/* recorremos los tipos documento que obtuvimos de la base de datos */}
+                {tiposDocumentos.map((tipo) => (
+                  <option key={tipo.id_tipo_documento} value={tipo.id_tipo_documento}>
+                    {tipo.nombre_documento}
+                  </option>
+                ))}
+              </select>
+              {/* En cada input vamos obtniendo y modificando el estado relacionado al campo del módelo correspondiente */}
+              <input type="number" className="form-control" placeholder="000000..." min="100000" maxLength={10} value={id_persona} onChange={(e)=>setId_persona(e.target.value)} required/>
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-phone pe-2"></i>
+                Teléfono:
+              </span>
+              <input type="number" className="form-control" placeholder="1234567890" min="1000000000" maxLength={10} value={telefono_persona} onChange={(e)=>setTelefono_persona(e.target.value)} required/>
+            </div>
+          </div>
+          <div className="d-flex gap-2 inputsContainer">
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-user pe-2"></i>
+                Nombres:
+              </span>
+              <input type="text" className="form-control" placeholder="Nombres" value={nombres_persona} onChange={(e)=>setNombres_persona(e.target.value)} required/>
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-user pe-2"></i>
+                  Apellidos:
+              </span>
+              <input type="text" className="form-control" placeholder="Apellidos" value={apellidos_personas} onChange={(e)=>setApellidos_personas(e.target.value)} required/>
+            </div>
+          </div>
+          <div className="d-flex gap-2 inputsContainer">
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-envelope pe-2"></i>
+                Correo: 
+              </span>
+              <input type="email" className="form-control" placeholder="micorreo@correo.com" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-lock pe-2"></i>
+                Contraseña: 
+              </span>
+              <input type="password" className="form-control" placeholder="MiContraseña" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
+            </div>
+          </div>
+          <div className="d-flex gap-2 inputsContainer">
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i className="fa-solid fa-compass pe-2"></i>
+                Ciudad: 
+              </span>
+              <input type="text" className="form-control" placeholder="Ciudad" value={ciudad} onChange={(e)=>setCiudad(e.target.value)} required/>
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text">
+                <i class="fa-solid fa-location-crosshairs pe-2"></i>
+                Dirección: 
+              </span>
+              <input type="text" className="form-control" placeholder="Dirección" value={direccion} onChange={(e)=>setDireccion(e.target.value)} required/>
+            </div>
+          </div>
           <div className="d-grid">
             <button type="submit" className="btn btn_outline_moradoOscuro" onClick={()=>validar()}>Registrarse <i className="fas fa-sign-in-alt"></i></button>
           </div>
         </div>
+      </div>
+      <div className="card-footer text-center">
+            ¿Ya tienes cuenta?, <Link to="/Login">Inicia Sesión</Link>
       </div>
     </div>
   </div>
