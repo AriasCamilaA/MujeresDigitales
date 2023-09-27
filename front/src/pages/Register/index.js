@@ -11,7 +11,7 @@ const Register = () => {
 
   // Estados para datos del modelo PERSONAS
   const [id_persona, setId_persona] = useState("");
-  const [id_tipo_documento_fk, setId_tipo_documento_fk] = useState("");
+  const [id_tipo_documento_fk, setId_tipo_documento_fk] = useState("1");
   const [id_usuaria, setId_usuaria] = useState("");
   const [nombres_persona, setNombres_persona] = useState("");
   const [apellidos_personas, setApellidos_personas] = useState("");
@@ -121,14 +121,6 @@ const registrarUsuario = (_usuaria, _persona) => {
     console.error("No se pudo crear Usuario "+ error)
   }
 }
-
-
-  
-
-
-
-
-
   // Component html
   return (
     <div className="Register">
@@ -212,7 +204,7 @@ const registrarUsuario = (_usuaria, _persona) => {
             </div>
             <div className="input-group mb-3">
               <span className="input-group-text">
-                <i class="fa-solid fa-location-crosshairs pe-2"></i>
+                <i className="fa-solid fa-location-crosshairs pe-2"></i>
                 Dirección: 
               </span>
               <input type="text" className="form-control" placeholder="Dirección" value={direccion} onChange={(e)=>setDireccion(e.target.value)} required/>

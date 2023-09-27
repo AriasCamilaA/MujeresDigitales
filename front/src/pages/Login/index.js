@@ -11,19 +11,19 @@ const Login = () => {
           </div>
           <div className="card-body">
             <form className="text-center">
-            <div class="input-group mb-3">
-              <span class="input-group-text w-25">
+            <div className="input-group mb-3">
+              <span className="input-group-text w-25">
                 <i className="fa-solid fa-user pe-2"></i>
                 Nombre:
               </span>
-              <input type="text" class="form-control w-75" placeholder="Ingrese Nombre"/>
+              <input type="text" className="form-control w-75" placeholder="Ingrese Nombre"/>
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text w-25">
+            <div className="input-group mb-3">
+              <span className="input-group-text w-25">
                 <i className="fa-solid fa-lock pe-2"></i>
                 Contraseña: 
               </span>
-              <input type="password" class="form-control w-75" placeholder="Ingrese contraseña"/>
+              <input type="password" className="form-control w-75" placeholder="Ingrese contraseña"/>
             </div>
 
               <div className="d-grid">
