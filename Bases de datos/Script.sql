@@ -5,7 +5,8 @@ USE mujeres_digitales;
 CREATE TABLE ROLES(
 	id_rol int auto_increment not null,
     nombre_rol varchar(50),
-    primary key(id_rol)
+    primary key(id_rol),
+    estado boolean
 );
 CREATE TABLE USUARIAS(
 	id_usuaria int auto_increment not null,
@@ -13,7 +14,8 @@ CREATE TABLE USUARIAS(
     password varchar(200),
     id_rol_fk int,
     primary key(id_usuaria),
-    foreign key(id_rol_fk) references roles(id_rol)
+    foreign key(id_rol_fk) references roles(id_rol),
+    estado boolean
 );
 
 
@@ -21,19 +23,22 @@ CREATE TABLE USUARIAS(
 CREATE TABLE TIPO_DOCUMENTO(
 	id_tipo_documento int auto_increment not null,
     nombre_documento varchar(50),
-    primary key(id_tipo_documento)
+    primary key(id_tipo_documento),
+    estado boolean
 );
 
 CREATE TABLE CATEGORIAS_SERVICIOS(
 	id_categoria int auto_increment not null,
     nombre_categoria varchar(50),
-    primary key(id_categoria)
+    primary key(id_categoria),
+    estado boolean
 );
 
 CREATE TABLE TIPOS_SERVICIOS(
 	id_tipo_servicio int auto_increment not null,
     nombre_tipo_servicio varchar(50),
-    primary key(id_tipo_servicio)
+    primary key(id_tipo_servicio),
+    estado boolean
 );
 
 CREATE TABLE SERVICIOS(
@@ -45,7 +50,8 @@ CREATE TABLE SERVICIOS(
     descripcion_servicio varchar(500),
     primary key(id_servicio),
     foreign key( id_categoria_fk) references categorias_servicios(id_categoria),
-    foreign key( id_tipo_servicio_fk) references tipos_servicios(id_tipo_servicio)
+    foreign key( id_tipo_servicio_fk) references tipos_servicios(id_tipo_servicio),
+    estado boolean
 );
 
 
@@ -63,7 +69,8 @@ id_servicios_preferencia_uno int,
 id_servicios_preferencia_dos int,    
 primary key(id_persona),     
 foreign key(id_usuaria) references usuarias(id_usuaria),     
-foreign key(id_tipo_documento_fk) references tipo_documento(id_tipo_documento)
+foreign key(id_tipo_documento_fk) references tipo_documento(id_tipo_documento),
+estado boolean
 );
 
 CREATE TABLE ESTABLECIMIENTOS_SERVICIOS(
@@ -74,14 +81,16 @@ CREATE TABLE ESTABLECIMIENTOS_SERVICIOS(
     responsable_est_servicio varchar(50),
     direccion_est_servicio varchar(50),
     primary key(id_est_servicio),
-    foreign key(id_servicio_fk) references servicios(id_servicio)
+    foreign key(id_servicio_fk) references servicios(id_servicio),
+    estado boolean
 );
 
 CREATE TABLE MUNICIPIOS(
 	id_municipio int auto_increment not null,
     codigo_municipio int, 
     nombre_municipio varchar(50),
-    primary key(id_municipio)
+    primary key(id_municipio),
+    estado boolean
 );
 
 CREATE TABLE MANZANAS(
@@ -92,7 +101,8 @@ CREATE TABLE MANZANAS(
     localidad varchar(50),
     direccion varchar(50),
     primary key(id_manzana),
-    foreign key(id_municipio_fk) references municipios(id_municipio)
+    foreign key(id_municipio_fk) references municipios(id_municipio),
+    estado boolean
 );
 
 CREATE TABLE CITAS(
@@ -104,7 +114,8 @@ CREATE TABLE CITAS(
     codigo_servicio int, 
     primary key(id_cita),
     foreign key(id_manzana_fk) references manzanas(id_manzana),
-    foreign key(id_servicio_fk ) references servicios(id_servicio)
+    foreign key(id_servicio_fk ) references servicios(id_servicio),
+    estado boolean
 );
 
 CREATE TABLE AGENDA(
@@ -113,6 +124,7 @@ CREATE TABLE AGENDA(
 	id_persona_fk int,
     primary key(id_agenda),
     foreign key(id_cita_fk) references citas(id_cita),
-    foreign key(id_persona_fk) references personas(id_persona)
+    foreign key(id_persona_fk) references personas(id_persona),
+    estado boolean
 );
 
