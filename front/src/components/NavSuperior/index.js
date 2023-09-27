@@ -14,7 +14,7 @@ const NavSuperior = () => {
       <div className="collapse navbar-collapse opciones" id="navbarSupportedContent">
         <Link to="/Usuarios" className='btn_outline_blanco p-2'>Usuarios</Link>
         <Link to="/#" className='btn_outline_blanco p-2'>Manzanas</Link>
-        <Link to="/#" className='btn_outline_blanco p-2'>Municipios</Link>
+        <Link to="/Municipios" className='btn_outline_blanco p-2'>Municipios</Link>
         <Link to="/#" className='btn_outline_blanco p-2'>Servicios</Link>
         <Link to="/#" className='btn_outline_blanco p-2'>Citas</Link>
         <Link to="/#" className='btn_outline_blanco p-2'>Agenda</Link>

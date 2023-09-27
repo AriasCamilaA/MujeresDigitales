@@ -28,23 +28,9 @@ const apiService = {
         
     },
 
-    getPersonas : async () => {
-        try {
-            const url_personas = url + "personas/";
-            const response = await axios.get(url_personas);
-            const data = response.data;
-            // console.log(data)
-            return data;
-        } catch (error) {
-            console.error("API ERROR: USUARIOS: "+error);
-            throw error;
-        }
-        
-    },
-
     registrarUsuario : async (usuario) => {
         try {
-            console.log(usuario);
+            usuario.estato = 0;
             const url_registrarUsuario = url + "usuarias/";
             const response = await axios.post(url_registrarUsuario, usuario);
             const data = response.data;
@@ -70,8 +56,23 @@ const apiService = {
         
     },
     
+    getPersonas : async () => {
+        try {
+            const url_personas = url + "personas/";
+            const response = await axios.get(url_personas);
+            const data = response.data;
+            // console.log(data)
+            return data;
+        } catch (error) {
+            console.error("API ERROR: USUARIOS: "+error);
+            throw error;
+        }
+        
+    },
+
     registrarPersona : async (persona) => {
         try {
+            persona.estado = 0;
             const url_registrarPersona = url + "personas/";
             const response = await axios.post(url_registrarPersona, persona);
             const data = response.data;
@@ -82,7 +83,7 @@ const apiService = {
         }
         
     },
-    
+
     editarPersona : async (persona) => {
         try {
             const id = persona.id_persona;
@@ -97,6 +98,47 @@ const apiService = {
         
     },
 
+    getMunicipios : async () => {
+        try {
+            const url_municipios = url + "municipios/";
+            const response = await axios.get(url_municipios);
+            const data = response.data;
+            // console.log(data)
+            return data;
+        } catch (error) {
+            console.error("API ERROR: MUNICIPIOS: "+error);
+            throw error;
+        }
+        
+    },
+    
+    registrarMunicipio : async (municipio) => {
+        try {
+            municipio.estado = 0;
+            const url_municipios = url + "municipios/";
+            const response = await axios.post(url_municipios, municipio);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: REGISTRAR MUNICIPIO: "+error);
+            throw error;
+        }
+        
+    },
+
+    editarMunicipio : async (municipio) => {
+        try {
+            const id = municipio.id_municipio;
+            const url_municipios = url + "municipios/"+id+"/";
+            const response = await axios.put(url_municipios, municipio);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: ACTUALIZAR PERSONA: "+error);
+            throw error;
+        }
+        
+    },
 }
 
 export default apiService;

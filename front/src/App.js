@@ -6,6 +6,7 @@ import ListUsuarios from './pages/Usuarios/index.js';
 import NavSuperior from './components/NavSuperior/index.js';
 import Footer from './components/Footer/index.js';
 import './App.css';
+import ListMunicipios from './pages/Municipios/index.js';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         
         {/* Rutas ya logueado */}
         <Route path="/Usuarios" element={<ListUsuarios />} />
+        <Route path="/Municipios" element={<ListMunicipios />} />
 
         {/* Envuelve Footer en un Route */}
       </Routes>

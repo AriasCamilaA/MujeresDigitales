@@ -284,7 +284,7 @@ const eliminarUsuario = (_id_usuaria, _id_persona) => {
     return (
     <>
         <div className="container ListUsuarios">
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between py-3">
                 <h1>Usuarios</h1>
                 <button 
                     className="btn_outline_moradoOscuro " 
