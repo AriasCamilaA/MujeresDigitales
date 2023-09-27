@@ -30,6 +30,8 @@ const Register = () => {
       apiService.getTiposDocumentos()
         .then((response)=>{
           setTiposDocumentos(response);
+        }).catch((e)=>{
+          console.error(e);
         })
     } catch (error) {
       console.error("No se pudo acceder a los tipos de documentos"+error)
@@ -116,44 +118,48 @@ const registrarUsuario = (_usuaria, _persona) => {
 
   // Component html
   return (
-    <div className="containerRegister d-flex justify-content-center align-items-center h-100">
+    <div className="Register">
     <div className="overlay"></div>
     <div className="card border_moradoOscuro w-75">
       <div className="card-header p-2 bg_moradoOscuro color_blanco">
-        <h3 className="text-center">Registrarse</h3>
+        <h3 className="text-center mt-2">Registrarse</h3>
       </div>
       <div className="card-body">
         <div className="text-center">
+          <div className="d-flex gap-2">
+            <div className="input-group mb-3 w-50">
+              <span className="input-group-text">
+                <i className="fa-solid fa-hashtag pe-2"></i>
+              </span>
+              <select
+                className="form-select"
+                value={id_tipo_documento_fk}
+                onChange={(e) => setId_tipo_documento_fk(e.target.value)}
+              >
+                <option value="" disabled>
+                  Tipo de Documento
+                </option>
+                {/* recorremos los tipos documento que obtuvimos de la base de datos */}
+                {tiposDocumentos.map((tipo) => (
+                  <option key={tipo.id_tipo_documento} value={tipo.id_tipo_documento}>
+                    {tipo.nombre_documento}
+                  </option>
+                ))}
+              </select>
+              {/* En cada input vamos obtniendo y modificando el estado relacionado al campo del módelo correspondiente */}
+              <input type="number" className="form-control" placeholder="000000..." min="100000" maxLength={10} value={id_persona} onChange={(e)=>setId_persona(e.target.value)} required/>
+            </div>
+            <div className="input-group mb-3 w-50">
+              <span className="input-group-text">
+                <i className="fa-solid fa-phone pe-2"></i>
+                Teléfono:
+              </span>
+              <input type="number" className="form-control" placeholder="1234567890" min="1000000000" maxLength={10} value={telefono_persona} onChange={(e)=>setTelefono_persona(e.target.value)} required/>
+            </div>
+          </div>
         <div className="input-group mb-3">
           <span className="input-group-text">
             <i className="fa-solid fa-user pe-2"></i>
-            Tipo Documento:
-          </span>
-          <select
-            className="form-select"
-            value={id_tipo_documento_fk}
-            onChange={(e) => setId_tipo_documento_fk(e.target.value)}
-          >
-            <option value="" disabled>
-              Tipo de Documento
-            </option>
-            {tiposDocumentos.map((tipo) => (
-              <option key={tipo.id_tipo_documento} value={tipo.id_tipo_documento}>
-                {tipo.nombre_documento}
-              </option>
-            ))}
-          </select>
-          <span className="input-group-text">
-            <i className="fa-solid fa-hashtag pe-2"></i>
-            Documento:
-          </span>
-          {/* En cada input vamos obtniendo y modificando el estado relacionado al campo del módelo correspondiente */}
-          <input type="number" className="form-control" placeholder="000000..." min="100000" maxLength={10} value={id_persona} onChange={(e)=>setId_persona(e.target.value)} required/>
-        </div>
-        <div className="input-group mb-3">
-          <span className="input-group-text">
-            <i className="fa-solid fa-user pe-2"></i>
-            Nombre:
           </span>
           <input type="text" className="form-control" placeholder="Nombres" value={nombres_persona} onChange={(e)=>setNombres_persona(e.target.value)} required/>
           <input type="text" className="form-control" placeholder="Apellidos" value={apellidos_personas} onChange={(e)=>setApellidos_personas(e.target.value)} required/>
@@ -173,11 +179,6 @@ const registrarUsuario = (_usuaria, _persona) => {
 
         <div className="input-group mb-3">
           <span className="input-group-text">
-            <i className="fa-solid fa-phone pe-2"></i>
-            Teléfono:
-          </span>
-          <input type="number" className="form-control" placeholder="1234567890" min="1000000000" maxLength={10} value={telefono_persona} onChange={(e)=>setTelefono_persona(e.target.value)} required/>
-          <span className="input-group-text">
             <i className="fa-solid fa-compass pe-2"></i>
             Ciudad: 
           </span>
@@ -188,6 +189,9 @@ const registrarUsuario = (_usuaria, _persona) => {
             <button type="submit" className="btn btn_outline_moradoOscuro" onClick={()=>validar()}>Registrarse <i className="fas fa-sign-in-alt"></i></button>
           </div>
         </div>
+      </div>
+      <div className="card-footer text-center">
+            ¿Ya tienes cuenta?, <Link to="/Login">Inicia Sesión</Link>
       </div>
     </div>
   </div>

@@ -36,24 +36,6 @@ p{
   font-size: 1.3em;
 }
 
-.menuContainer{
-  border: 1px solid var(--moradoOscuro);
-  background-color: var(--gris);
-  height: 100vh;
-  width: 20vw;
-  min-width: 300px;
-}
-
-.page{
-  overflow: hidden;
-}
-
-.pageContainer{
-  height: 100vh;
-  width: 80vw;
-  overflow: auto;
-}
-
 /* Background color */
 .bg_blanco{
   background-color: var(--blanco);
@@ -139,6 +121,14 @@ p{
   border-radius: 0.3em;
   text-decoration: none;
 }
+.btn_blanco{
+  background-color: var(--blanco);
+  color: var(--moradoOscuro);
+  border: none;
+  padding: 0.3em 0.6em;
+  border-radius: 0.3em;
+  text-decoration: none;
+}
 
 /* btns hover*/
 .btn_moradoClaro:hover{
@@ -152,6 +142,9 @@ p{
 }
 .btn_naranja:hover{
   background-color: var(--naranjaHover);
+}
+.btn_blanco:hover{
+  background-color: var(--gris);
 }
 
 /* btn outline */
@@ -179,6 +172,12 @@ p{
   border-radius: 0.3em;
   text-decoration: none;
 }
+.btn_outline_blanco{
+  border: 1px solid var(--blanco);
+  color: var(--blanco);
+  border-radius: 0.3em;
+  text-decoration: none;
+}
 
 /* btns hover*/
 .btn_outline_moradoClaro:hover{
@@ -196,4 +195,8 @@ p{
 .btn_outline_naranja:hover{
   background-color: var(--naranja);
   color: var(--blanco);
+}
+.btn_outline_blanco:hover{
+  background-color: var(--blanco);
+  color: var(--moradoOscuro);
 }

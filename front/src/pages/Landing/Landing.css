@@ -1,0 +1,70 @@
+
+.Landing section{
+    border-bottom: 2px dotted var(--moradoOscuro);
+    padding: 4em 0;
+}
+
+.Landing .navSuperior{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Landing .navSuperior img{
+    height: 3em;
+}
+
+.Landing .header{
+    display: flex;
+    justify-content: center;
+    margin-top:5em;
+}
+
+.Landing .header .img{
+    background-image: url("/public/img/manzana-cuidado-bosa.jpg");
+    background-size: cover; 
+    background-position: center; 
+    width: 75%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.Landing .header div{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Landing .cardsContainer{
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Landing .card{
+    width: 18em;
+}
+
+.Landing .card .card-title{
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0;
+}
+
+.Landing .conoce{
+    border-bottom: 2px dotted var(--verde);
+    border-top: 2px dotted var(--verde);
+    margin: 2em auto;
+}
+
+@media screen and (max-width: 768px) {
+    .Landing .header .texto{
+        display: none;
+    }
+    .Landing .header .img{
+        width: 100%;
+    }
+}
