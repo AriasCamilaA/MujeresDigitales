@@ -223,6 +223,48 @@ const apiService = {
         
     },
 
+    getServicios : async () => {
+        try {
+            const url_servicios = url + "servicios/";
+            const response = await axios.get(url_servicios);
+            const data = response.data;
+            // console.log(data)
+            return data;
+        } catch (error) {
+            console.error("API ERROR: SERVICIOS: "+error);
+            throw error;
+        }
+        
+    },
+    
+    registrarServicio : async (servicio) => {
+        try {
+            servicio.estado = 0;
+            const url_servicios = url + "servicios/";
+            const response = await axios.post(url_servicios, servicio);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: REGISTRAR SERVICIO: "+error);
+            throw error;
+        }
+        
+    },
+
+    editarServicio : async (servicio) => {
+        try {
+            const id = servicio.id_servicio;
+            const url_municipios = url + "servicios/"+id+"/";
+            const response = await axios.put(url_municipios, servicio);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: ACTUALIZAR SERVICIO: "+error);
+            throw error;
+        }
+        
+    },
+
 
 }
 
