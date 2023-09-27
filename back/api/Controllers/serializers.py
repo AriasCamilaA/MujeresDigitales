@@ -55,8 +55,8 @@ class CategoriasSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ServiciosSerializer(serializers.ModelSerializer):
-    categoria = CategoriasSerializer(source = 'id_servicio', read_only = True)
-    tipo_servicio= TiposServiciosSerializer(source = 'id_categoria_fk', read_only = True)
+    categoria = CategoriasSerializer(source = 'id_categoria_fk', read_only = True)
+    tipo_servicio= TiposServiciosSerializer(source = 'id_tipo_servicio_fk', read_only = True)
     class Meta:
         model = Servicios
         fields = '__all__'
