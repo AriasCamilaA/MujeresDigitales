@@ -1,4 +1,3 @@
-from django.contrib.auth.hashers import make_password
 from rest_framework import viewsets
 from ..models import Usuarias
 from .serializers import UsuariasSerializer
@@ -7,10 +6,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import login, authenticate
 from django.http import JsonResponse
 
-def save(self, *args, **kwargs):
-    if self.password:
-        self.password = make_password(self.password)
-            
 class usuariasCRUD(viewsets.ModelViewSet):
     queryset = Usuarias.objects.all()
     serializer_class = UsuariasSerializer
@@ -21,12 +16,9 @@ def login_view(request):
     if request.method =='POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-
-        #cifrar contraseña para comparar en con la base de datos 
-        save()
-
         # Autenticar al usuario utilizando el correo electrónico y la contraseña
         usuaria = authenticate(request, email=email, password=password)
+        
         # Comprobar si la autenticación fue exitosa
         if usuaria:
             # Iniciar sesión para el usuario autenticado

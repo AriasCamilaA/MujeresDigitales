@@ -4,7 +4,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-AUTHENTICATION_BACKENDS = ['users.backends.EmailBackend']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -32,15 +31,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
+#AUTHENTICATION_BACKENDS = ['api.backends.CustomModelBackend']
+AUTH_USER_MODEL ='api.Usuarias'
 REST_FRAMEWORK ={
     'DEFAULT_AUTHENTICATION.CLASSES':(
         'rest_framework_simplejwt',
-        'rest_framework_jwt.authentication.JWTAuthentication'
+        'rest_framework_jwt.authentication.JSONWEBTOKENAuthentication'
     )
 }
 
-AUTH_USER_MODEL ='api.Usuarias'
+#AUTH_USER_MODEL ='api.Usuarias'
 
 MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -87,8 +87,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':  'mujeres_digitales',
         #'PASSWORD': '666666',
-        'PASSWORD': '1234567890',
-        #'PASSWORD': '1021662854',
+        #'PASSWORD': '1234567890',
+        'PASSWORD': '1021662854',
         'USER': 'root',
         'HOST': '127.0.0.1',
         'PORT': '3306',
