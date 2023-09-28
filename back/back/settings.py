@@ -4,6 +4,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+AUTHENTICATION_BACKENDS = ['users.backends.EmailBackend']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -35,11 +36,11 @@ INSTALLED_APPS = [
 REST_FRAMEWORK ={
     'DEFAULT_AUTHENTICATION.CLASSES':(
         'rest_framework_simplejwt',
-        'rest_framework_jwt.authentication.JSONWEBTOKENAuthentication'
+        'rest_framework_jwt.authentication.JWTAuthentication'
     )
 }
 
-#AUTH_USER_MODEL ='api.Usuarias'
+AUTH_USER_MODEL ='api.Usuarias'
 
 MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
