@@ -19,6 +19,7 @@ const NavSuperior = () => {
         <Link to="/Citas" className='btn_outline_blanco p-2'>Citas</Link>
         <Link to="/#" className='btn_outline_blanco p-2'>Agenda</Link>
         <Link to="/Mapa" className='btn_outline_blanco p-2'>Mapa</Link>
+        <Link to="/Landing" className='btn_outline_verde p-2'>Salir</Link>
       </div>
     </div>
   </nav>
