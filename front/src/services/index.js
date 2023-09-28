@@ -3,6 +3,19 @@ import axios from "axios";
 const url = 'http://127.0.0.1:8000/api/';
 
 const apiService = {
+    
+    getReporte : async (_modelo) => {
+        try {
+            const url_reporte = url + "reporte/"+_modelo+"/";
+            window.open(url_reporte);
+            return null;
+        } catch (error) {
+            console.error("API ERROR: MANZANAS: "+error);
+            throw error;
+        }
+    },
+
+
     getTiposDocumentos : async () => {
         try {
             const url_tipos_documentos = url + "tipo_documento/";
@@ -218,6 +231,90 @@ const apiService = {
             return data;
         } catch (error) {
             console.error("API ERROR: ACTUALIZAR TIPO SERVICIO: "+error);
+            throw error;
+        }
+        
+    },
+
+    getServicios : async () => {
+        try {
+            const url_servicios = url + "servicios/";
+            const response = await axios.get(url_servicios);
+            const data = response.data;
+            // console.log(data)
+            return data;
+        } catch (error) {
+            console.error("API ERROR: SERVICIOS: "+error);
+            throw error;
+        }
+        
+    },
+    
+    registrarServicio : async (servicio) => {
+        try {
+            servicio.estado = 0;
+            const url_servicios = url + "servicios/";
+            const response = await axios.post(url_servicios, servicio);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: REGISTRAR SERVICIO: "+error);
+            throw error;
+        }
+        
+    },
+
+    editarServicio : async (servicio) => {
+        try {
+            const id = servicio.id_servicio;
+            const url_municipios = url + "servicios/"+id+"/";
+            const response = await axios.put(url_municipios, servicio);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: ACTUALIZAR SERVICIO: "+error);
+            throw error;
+        }
+        
+    },
+
+    getManzanas : async () => {
+        try {
+            const url_manzanas = url + "manzanas/";
+            const response = await axios.get(url_manzanas);
+            const data = response.data;
+            // console.log(data)
+            return data;
+        } catch (error) {
+            console.error("API ERROR: MANZANAS: "+error);
+            throw error;
+        }
+        
+    },
+    
+    registrarManzana : async (manzana) => {
+        try {
+            manzana.estado = 0;
+            const url_manzanas = url + "manzanas/";
+            const response = await axios.post(url_manzanas, manzana);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: REGISTRAR MANZANA: "+error);
+            throw error;
+        }
+        
+    },
+
+    editarManzana : async (manzana) => {
+        try {
+            const id = manzana.id_manzana;
+            const url_manzanas = url + "manzanas/"+id+"/";
+            const response = await axios.put(url_manzanas, manzana);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: ACTUALIZAR MANZANA: "+error);
             throw error;
         }
         

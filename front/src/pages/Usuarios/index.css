@@ -1,3 +1,7 @@
 th, td{
     text-align: center;
 }
+
+.table-responsive{
+    height: 60vh;
+}

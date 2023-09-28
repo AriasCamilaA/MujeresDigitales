@@ -210,7 +210,7 @@ const ListMunicipios = () => {
                                             <i className="fa-solid fa-map-marker pe-2"></i>
                                             Código:
                                         </span>
-                                        <input type="text" className="form-control" placeholder="Nombre del municipio" value={codigo_municipio} onChange={(e) => setCodigo_municipio(e.target.value)} required />
+                                        <input type="text" className="form-control" placeholder="Código del municipio" value={codigo_municipio} onChange={(e) => setCodigo_municipio(e.target.value)} required />
                                     </div>
                                     <div className="input-group mb-3">
                                         <span className="input-group-text">
