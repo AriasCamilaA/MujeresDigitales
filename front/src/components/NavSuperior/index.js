@@ -18,6 +18,7 @@ const NavSuperior = () => {
         <Link to="/Servicios" className='btn_outline_blanco p-2'>Servicios</Link>
         <Link to="/#" className='btn_outline_blanco p-2'>Citas</Link>
         <Link to="/#" className='btn_outline_blanco p-2'>Agenda</Link>
+        <Link to="/Mapa" className='btn_outline_blanco p-2'>Agenda</Link>
       </div>
     </div>
   </nav>

@@ -3,6 +3,19 @@ import axios from "axios";
 const url = 'http://127.0.0.1:8000/api/';
 
 const apiService = {
+    
+    getReporte : async (_modelo) => {
+        try {
+            const url_reporte = url + "reporte/"+_modelo+"/";
+            window.open(url_reporte);
+            return null;
+        } catch (error) {
+            console.error("API ERROR: MANZANAS: "+error);
+            throw error;
+        }
+    },
+
+
     getTiposDocumentos : async () => {
         try {
             const url_tipos_documentos = url + "tipo_documento/";

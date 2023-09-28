@@ -3,6 +3,7 @@ import { showAlert } from '../../Utilities';
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import apiService from "../../services";
+import { reporteExcel } from "../../Utilities";
 import './index.css'
 
 const ListUsuarios = () => {
@@ -278,22 +279,25 @@ const eliminarUsuario = (_id_usuaria, _id_persona) => {
         }
     });
 }
-
-
-
     return (
     <>
         <div className="container ListUsuarios">
             <div className="d-flex justify-content-between py-3">
                 <h1>Usuarios</h1>
-                <button 
-                    className="btn_outline_moradoOscuro " 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#nuevoEditarUsuario"
-                    onClick={()=>openModal(1)}
-                >
-                    + Nuevo
-                </button>
+                <div>
+                    <button className='btn_verde' onClick={()=>reporteExcel("Personas")}>
+                        <i className="fa-solid fa-file-excel pe-2"></i>
+                        Reporte
+                    </button>
+                    <button 
+                        className="btn_outline_moradoOscuro p-1 " 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#nuevoEditarUsuario"
+                        onClick={()=>openModal(1)}
+                    >
+                        + Nuevo
+                    </button>
+                </div>
             </div>
             <div className="table-responsive border_verde rounded bg_gris">
                 <table className="table table-hover">

@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { showAlert } from '../../Utilities';
+import { Link } from 'react-router-dom';
+import { reporteExcel } from "../../Utilities";
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import apiService from "../../services";
-import { Link } from 'react-router-dom';
+
 
 const Servicios = () => {
     const [servicios, setServicios] = useState([]);
@@ -199,6 +201,10 @@ const Servicios = () => {
             <div className="d-flex justify-content-between py-3">
                 <h1>Servicios</h1>
                 <div className='d-flex gap-2'>
+                    <button className='btn_verde' onClick={()=>reporteExcel("Servicios")}>
+                        <i className="fa-solid fa-file-excel pe-2"></i>
+                        Reporte
+                    </button>
                     <Link className='btn_outline_moradoOscuro p-2' to="/CategoriasServicios">Categorias</Link>
                     <Link className='btn_outline_moradoOscuro p-2' to="/TiposServicios">Tipos</Link>
                     <button 

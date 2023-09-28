@@ -10,6 +10,7 @@ import CategoriasServicios from './pages/Servicios/CategoriasServicios.js';
 import TiposServicios from './pages/Servicios/TiposServicios.js';
 import Servicios from './pages/Servicios/index.js';
 import Manzanas from './pages/Manzanas/index.js';
+import Mapa from './pages/Mapa/index.js';
 import './App.css';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/TiposServicios" element={<TiposServicios />} />
         <Route path="/Servicios" element={<Servicios />} />
         <Route path="/MAnzanas" element={<Manzanas />} />
+        <Route path="/Mapa" element={<Mapa />} />
 
         {/* Envuelve Footer en un Route */}
       </Routes>
