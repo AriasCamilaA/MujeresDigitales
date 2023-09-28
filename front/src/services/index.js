@@ -360,6 +360,47 @@ const apiService = {
         }
         
     },
+    getAgenda : async () => {
+        try {
+            const url_agenda = url + "agenda/";
+            const response = await axios.get(url_agenda);
+            const data = response.data;
+            // console.log(data)
+            return data;
+        } catch (error) {
+            console.error("API ERROR: AGENDA: "+error);
+            throw error;
+        }
+        
+    },
+    
+    registrarAgenda : async (agenda) => {
+        try {
+            agenda.estado = 0;
+            const url_agenda = url + "agenda/";
+            const response = await axios.post(url_agenda, agenda);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: REGISTRAR AGENDA: "+error);
+            throw error;
+        }
+        
+    },
+
+    editarAgenda : async (agenda) => {
+        try {
+            const id = agenda.id_agenda;
+            const url_agenda = url + "agenda/"+id+"/";
+            const response = await axios.put(url_agenda, agenda);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: ACTUALIZAR AGENDA: "+error);
+            throw error;
+        }
+        
+    },
 
 
 }
