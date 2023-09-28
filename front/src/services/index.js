@@ -319,6 +319,47 @@ const apiService = {
         }
         
     },
+    getCitas : async () => {
+        try {
+            const url_citas = url + "citas/";
+            const response = await axios.get(url_citas);
+            const data = response.data;
+            // console.log(data)
+            return data;
+        } catch (error) {
+            console.error("API ERROR: CITAS: "+error);
+            throw error;
+        }
+        
+    },
+    
+    registrarCita : async (cita) => {
+        try {
+            cita.estado = 0;
+            const url_citas = url + "citas/";
+            const response = await axios.post(url_citas, cita);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: REGISTRAR CITA: "+error);
+            throw error;
+        }
+        
+    },
+
+    editarCita : async (cita) => {
+        try {
+            const id = cita.id_cita;
+            const url_manzanas = url + "citas/"+id+"/";
+            const response = await axios.put(url_manzanas, cita);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: ACTUALIZAR CITA: "+error);
+            throw error;
+        }
+        
+    },
 
 
 }

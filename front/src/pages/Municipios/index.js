@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { showAlert } from '../../Utilities';
+import { reporteExcel } from "../../Utilities";
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import apiService from "../../services";
@@ -34,6 +35,7 @@ const ListMunicipios = () => {
 
     const limpiarCampos = () => {
         setId_municipio("");
+        setCodigo_municipio("");
         setNombre_municipio("");
     }
 
@@ -142,14 +144,20 @@ const ListMunicipios = () => {
             <div className="container ListMunicipios">
                 <div className="d-flex justify-content-between py-3">
                     <h1>Municipios</h1>
-                    <button
-                        className="btn_outline_moradoOscuro "
-                        data-bs-toggle="modal"
-                        data-bs-target="#nuevoEditarMunicipio"
-                        onClick={() => openModal(1)}
-                    >
-                        + Nuevo
-                    </button>
+                    <div className='d-flex gap-2'>
+                        <button className='btn_verde' onClick={()=>reporteExcel("Municipios")}>
+                            <i className="fa-solid fa-file-excel pe-2"></i>
+                            Reporte
+                        </button>
+                        <button
+                            className="btn_outline_moradoOscuro "
+                            data-bs-toggle="modal"
+                            data-bs-target="#nuevoEditarMunicipio"
+                            onClick={() => openModal(1)}
+                        >
+                            + Nuevo
+                        </button>
+                    </div>
                 </div>
                 <div className="table-responsive border_verde rounded bg_gris">
                     <table className="table table-hover">
