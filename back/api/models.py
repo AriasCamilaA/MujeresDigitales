@@ -139,13 +139,15 @@ class TiposServicios(models.Model):
         db_table = 'tipos_servicios'
 
 
-class Usuarias(models.Model):
+class Usuarias(AbstractBaseUser, PermissionsMixin):
     id_usuaria = models.AutoField(primary_key=True)
-    email = models.CharField(max_length=50, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True, unique=True)
     password = models.CharField(max_length=200, blank=True, null=True)
     id_rol_fk = models.ForeignKey(Roles, models.DO_NOTHING, db_column='id_rol_fk', blank=True, null=True)
     estado = models.IntegerField(blank=True, null=True)
 
+    USERNAME_FIELD = 'email'  # Debe ser una lista con el nombre del campo
+    
     def save(self, *args, **kwargs):
         if self.password:
             self.password = make_password(self.password)
@@ -154,3 +156,4 @@ class Usuarias(models.Model):
 
     class Meta:
         db_table = 'usuarias'
+
