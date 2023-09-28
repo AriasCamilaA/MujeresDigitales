@@ -18,7 +18,7 @@ const ListUsuarios = () => {
     const [modalTitle, setModalTitle] = useState("");
     const [modalOption, setModalOption] = useState("");
 
-    // Estados para datos del modelo USUARIAS
+    // Estados para datos del modelo Users
     const [id_usuaria, setId_usuaria] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

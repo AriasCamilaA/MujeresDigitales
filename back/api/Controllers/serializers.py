@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import Agenda, CategoriasServicios,Roles, TipoDocumento, EstablecimientosServicios, Servicios, TiposServicios, Manzanas, Municipios, Personas, Usuarias, Citas
+from ..models import Agenda, CategoriasServicios,Roles, TipoDocumento, EstablecimientosServicios, Servicios, TiposServicios, Manzanas, Municipios, Personas, Users, Citas
 
 
 class RolesSerializer(serializers.ModelSerializer):
@@ -8,10 +8,10 @@ class RolesSerializer(serializers.ModelSerializer):
         model = Roles
         fields = '__all__'
 
-class UsuariasSerializer(serializers.ModelSerializer):
+class UsersSerializer(serializers.ModelSerializer):
     rol = RolesSerializer(source = 'id_rol_fk', read_only = True)
     class Meta:
-        model = Usuarias
+        model = Users
         fields = '__all__'
 
 
@@ -24,7 +24,7 @@ class TipoDocumentoSerializer(serializers.ModelSerializer):
 
 class PersonasSerializer(serializers.ModelSerializer):
     tipo_documento = TipoDocumentoSerializer(source='id_tipo_documento_fk', read_only=True)
-    usuaria = UsuariasSerializer(source='id_usuaria', read_only=True)
+    usuaria = UsersSerializer(source='id_usuaria', read_only=True)
     class Meta:
         model = Personas
         fields = '__all__'

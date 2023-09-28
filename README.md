@@ -55,6 +55,6 @@ Se debe realizar un sistema de información web que tenga en cuenta los siguient
  
 Para el diseño o interfaz el aprendiz puede hacer la búsqueda de todo el material multimedia que desee y considere que es acorde para cada uno de los módulos, donde proporcione facilidad al usuario para su interacción.
 El diseño de la interfaz debe centrarse en proporcionar una experiencia de usuario intuitiva y atractiva. Se pueden utilizar elementos multimedia relevantes para cada módulo, asegurándose de que la navegación sea sencilla y amigable. El diseño debe enfocarse en la usabilidad y la accesibilidad para que las mujeres cuidadoras puedan interactuar de manera efectiva con el sistema.
-Además, se debe considerar la incorporación de elementos visuales que reflejen la naturaleza de apoyo y cuidado de las Manzanas, transmitiendo confianza y comodidad a las usuarias.
+Además, se debe considerar la incorporación de elementos visuales que reflejen la naturaleza de apoyo y cuidado de las Manzanas, transmitiendo confianza y comodidad a las Users.
 
 
