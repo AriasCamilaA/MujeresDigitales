@@ -284,7 +284,7 @@ const eliminarUsuario = (_id_usuaria, _id_persona) => {
         <div className="container ListUsuarios">
             <div className="d-flex justify-content-between py-3">
                 <h1>Usuarios</h1>
-                <div>
+                <div className='d-flex gap-3'>
                     <button className='btn_verde' onClick={()=>reporteExcel("Personas")}>
                         <i className="fa-solid fa-file-excel pe-2"></i>
                         Reporte

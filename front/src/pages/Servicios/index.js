@@ -273,7 +273,7 @@ const Servicios = () => {
 
         {/* Modal Nuevo y Editar */}
         <div className="modal fade" id="nuevoEditarServicio" tabIndex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+            <div className="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
                 <div className="modal-content">
                     <div className="modal-header bg_moradoOscuro color_blanco">
                         <h5 className="modal-title" id="modalTitleId">{modalTitle}</h5>
@@ -281,6 +281,15 @@ const Servicios = () => {
                     </div>
                     <div className="modal-body">
                     <div className="text-center">
+                        <div className="d-flex gap-2 inputsContainer">
+                            <div className="input-group mb-3">
+                                <span className="input-group-text">
+                                    <i className="fa-solid fa-user pe-2"></i>
+                                    Código:
+                                </span>
+                                <input type="text" className="form-control" placeholder="Códgo" value={codigo_servicio} onChange={(e)=>setCodigo_servicio(e.target.value)} required/>
+                            </div>
+                        </div>
                         <div className="d-flex gap-2 inputsContainer">
                             <div className="input-group mb-3">
                                 <span className="input-group-text">
@@ -296,7 +305,7 @@ const Servicios = () => {
                                     <i className="fa-solid fa-user pe-2"></i>
                                     Descripción:
                                 </span>
-                                <input type="textarea" className="form-control" placeholder="Nombres" value={descripcion_servicio} onChange={(e)=>setDescripcion_servicio(e.target.value)} required/>
+                                <input type="textarea" className="form-control" placeholder="Descripción" value={descripcion_servicio} onChange={(e)=>setDescripcion_servicio(e.target.value)} required/>
                             </div>
                         </div>
                         <div className="d-flex gap-2 inputsContainer">
@@ -317,6 +326,31 @@ const Servicios = () => {
                                         return(
                                             <option key={i.id_categoria} value={i.id_categoria}>
                                                 {i.nombre_categoria}
+                                            </option>
+                                        );
+                                    }
+                                })}
+                            </select>
+                            </div>
+                        </div>
+                        <div className="d-flex gap-2 inputsContainer">
+                            <div className="input-group mb-3">
+                            <span className="input-group-text">
+                                <i className="fa-solid fa-id-card pe-2"></i>
+                            </span>
+                            <select
+                                className="form-select"
+                                value={id_tipo_servicio_fk}
+                                onChange={(e) => setId_tipo_servicio_fk(e.target.value)}
+                            >
+                                <option value="" disabled>
+                                    Tipo Servicio
+                                </option>
+                                {tiposServicios.map((i) =>{
+                                    if(i.estado==0){
+                                        return(
+                                            <option key={i.id_tipo_servicio} value={i.id_tipo_servicio}>
+                                                {i.nombre_tipo_servicio}
                                             </option>
                                         );
                                     }

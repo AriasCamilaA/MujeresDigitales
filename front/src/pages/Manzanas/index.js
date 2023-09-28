@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import { showAlert } from '../../Utilities';
+import { reporteExcel } from "../../Utilities";
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import apiService from "../../services";
-import { Link } from 'react-router-dom';
 
 const Manzanas = () => {
-    const [servicios, setServicios] = useState([]);
-
     const [municipios, setMunicipios] = useState([]);
     const [manzanas, setManzanas] = useState([]);
 
@@ -187,14 +185,20 @@ const Manzanas = () => {
         <div className="container ListUsuarios">
             <div className="d-flex justify-content-between py-3">
                 <h1>Manzanas</h1>
-                <button 
-                    className="btn_outline_moradoOscuro p-1" 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#nuevoEditarManzana"
-                    onClick={()=>openModal(1)}
-                >
-                    + Nuevo
-                </button>
+                <div className='d-flex gap-3'>
+                    <button className='btn_verde' onClick={()=>reporteExcel("Manzanas")}>
+                        <i className="fa-solid fa-file-excel pe-2"></i>
+                        Reporte
+                    </button>
+                    <button 
+                        className="btn_outline_moradoOscuro p-1" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#nuevoEditarManzana"
+                        onClick={()=>openModal(1)}
+                    >
+                        + Nuevo
+                    </button>
+                </div>
             </div>
             <div className="table-responsive border_verde rounded bg_gris">
                 <table className="table table-hover">
@@ -256,7 +260,7 @@ const Manzanas = () => {
 
         {/* Modal Nuevo y Editar */}
         <div className="modal fade" id="nuevoEditarManzana" tabIndex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+            <div className="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
                 <div className="modal-content">
                     <div className="modal-header bg_moradoOscuro color_blanco">
                         <h5 className="modal-title" id="modalTitleId">{modalTitle}</h5>

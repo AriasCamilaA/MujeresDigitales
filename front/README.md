@@ -1,60 +1,70 @@
-## Sena Soft 2023
-# Categoría Mujeres digitales
+# Getting Started with Create React App
 
-- Integrantes:
-    - Camila Alexandra Arias Ruiz
-    - María Fernanda Delgado Pardo
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Descripción del reto
-SISTEMA DE INFORMACION PARA SELECCIÓN DE LAS MANZANAS DEL CUIDADO SEGÚN NECESIDAD DE LA MUJER CUIDADORA
- 
-CONTENIDO
+## Available Scripts
 
-1.	Distribución de las actividades por día	1
-2.	Descripción del contexto de la necesidad	1
-3.	Requerimientos	1
-4.	Diseño	2
- 
- 
- 
-1.    Distribución de las actividades por día
-Dia 1: 
-·	Modelo Entidad Relación y diccionario de datos
-·	Maquetación del sistema de información (Frontend)
- 
-Dia 2:
-·	Desarrollo (Backend)
-Dia 3:
-·	Validaciones y Pitch
- 
-2.    Descripción del contexto de la necesidad
- 
-Las Manzanas del Cuidado son espacios de la ciudad en los que se brinda tiempo y servicios a las mujeres y a sus familias.
-En las Manzanas del Cuidado las cuidadoras tienen tiempo y servicios gratuitos, aquí pueden estudiar, emprender, emplearse, descansar, ejercitarse, recibir orientación y asesoría jurídica y psicológica, lavar su ropa y la de su familia en lavanderías comunitarias, todo totalmente gratis.
- 
-Las Manzanas son áreas de la ciudad en las que se tiene la infraestructura y servicios para atender de manera próxima y simultánea a las cuidadoras y a sus familias. Por ejemplo, en una Manzana del Cuidado las cuidadoras y quienes ellas cuidan pueden encontrar colegios, jardines, parques, hospitales, centros de atención para personas mayores.
- 
-3.    Requerimientos
- 
-Se debe realizar un sistema de información web que tenga en cuenta los siguientes requisitos:
-·	El sistema debe permitir el registro de Municipios que cuentan con una o varias manzanas del cuidado. 
-·	Las manzanas deben registrar: Código, nombre, localidad y dirección
-·	El sistema debe permitir ver las manzanas en un mapa y mostrar una tarjeta con la información de estas.
-·	Las manzanas cuentas con diferentes tipos de servicios, categorías de servicios y servicios de los cuales se requiere mínimo información como código, nombre, descripción
-·	Así mismo de cada servicio puede contar con establecimientos que les prestan la infraestructura y dar un mejor servicio con más calidad. De los establecimientos se desea guardar un código, nombre, responsable, dirección.
-·	Una vez se haya realizado el registro en el sistema se debe contar con una página que permita a la mujer cuidadora proponer la manzana, servicio y día y hora que podría asistir.
-·	De las mujeres se requiere guardar: Tipo de documento, Documento, Nombres, Apellidos, teléfono, correo electrónico, Ciudad, dirección, ocupación, servicios en los que le gustaría participar 
-·	El sistema debe tener un Login, un método para restaurar contraseña 
-·	Todos los formularios deben contar con validaciones y mensajes de alerta
-·	El sistema de información debe permitir hacer el CRUD para cada uno de los módulos
-·	La asignación de la manzana se debe dar por cercanía y/o servicio que desee de la ubicación de la mujer cuidadora.
-·	Se deben generar reportes de cada módulo y tener la opción de imprimir en Excel o pdf
- 
- 
-4.    Diseño
- 
-Para el diseño o interfaz el aprendiz puede hacer la búsqueda de todo el material multimedia que desee y considere que es acorde para cada uno de los módulos, donde proporcione facilidad al usuario para su interacción.
-El diseño de la interfaz debe centrarse en proporcionar una experiencia de usuario intuitiva y atractiva. Se pueden utilizar elementos multimedia relevantes para cada módulo, asegurándose de que la navegación sea sencilla y amigable. El diseño debe enfocarse en la usabilidad y la accesibilidad para que las mujeres cuidadoras puedan interactuar de manera efectiva con el sistema.
-Además, se debe considerar la incorporación de elementos visuales que reflejen la naturaleza de apoyo y cuidado de las Manzanas, transmitiendo confianza y comodidad a las usuarias.
+In the project directory, you can run:
 
+### `npm start`
 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
