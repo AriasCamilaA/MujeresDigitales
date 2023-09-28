@@ -265,6 +265,48 @@ const apiService = {
         
     },
 
+    getManzanas : async () => {
+        try {
+            const url_manzanas = url + "manzanas/";
+            const response = await axios.get(url_manzanas);
+            const data = response.data;
+            // console.log(data)
+            return data;
+        } catch (error) {
+            console.error("API ERROR: MANZANAS: "+error);
+            throw error;
+        }
+        
+    },
+    
+    registrarManzana : async (manzana) => {
+        try {
+            manzana.estado = 0;
+            const url_manzanas = url + "manzanas/";
+            const response = await axios.post(url_manzanas, manzana);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: REGISTRAR MANZANA: "+error);
+            throw error;
+        }
+        
+    },
+
+    editarManzana : async (manzana) => {
+        try {
+            const id = manzana.id_manzana;
+            const url_manzanas = url + "manzanas/"+id+"/";
+            const response = await axios.put(url_manzanas, manzana);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error("API ERROR: ACTUALIZAR MANZANA: "+error);
+            throw error;
+        }
+        
+    },
+
 
 }
 
