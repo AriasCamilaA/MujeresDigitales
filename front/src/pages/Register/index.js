@@ -5,7 +5,7 @@ import apiService from "../../services";
 import { showAlert } from "../../Utilities";
 
 const Register = () => {
-  // Estados para datos del modelo Users
+  // Estados para datos del modelo Usuarias
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

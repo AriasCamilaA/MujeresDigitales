@@ -8,7 +8,7 @@ CREATE TABLE ROLES(
     primary key(id_rol),
     estado boolean
 );
-CREATE TABLE Users(
+CREATE TABLE Usuarias(
 	id_usuaria int auto_increment not null,
     email varchar(50),
     password varchar(200),
@@ -68,7 +68,7 @@ ocupacion varchar(50),
 id_servicios_preferencia_uno int,     
 id_servicios_preferencia_dos int,    
 primary key(id_persona),     
-foreign key(id_usuaria) references Users(id_usuaria),     
+foreign key(id_usuaria) references Usuarias(id_usuaria),     
 foreign key(id_tipo_documento_fk) references tipo_documento(id_tipo_documento),
 estado boolean
 );

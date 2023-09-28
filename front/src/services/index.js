@@ -44,7 +44,7 @@ const apiService = {
     registrarUsuario : async (usuario) => {
         try {
             usuario.estato = 0;
-            const url_registrarUsuario = url + "Users/";
+            const url_registrarUsuario = url + "Usuarias/";
             const response = await axios.post(url_registrarUsuario, usuario);
             const data = response.data;
             return data;
@@ -58,7 +58,7 @@ const apiService = {
     editarUsuario : async (usuario) => {
         try {
             const id = usuario.id_usuaria;
-            const url_registrarUsuario = url + "Users/"+id+"/";
+            const url_registrarUsuario = url + "Usuarias/"+id+"/";
             const response = await axios.put(url_registrarUsuario, usuario);
             const data = response.data;
             return data;

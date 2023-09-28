@@ -1,8 +1,8 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .Controllers.tipo_documento import tipo_documentoCRUD
-from .Controllers.Users import UsersCRUD
-from .Controllers.Users import login_view
+from .Controllers.Usuarias import UsuariasCRUD
+from .Controllers.Usuarias import login_view
 from .Controllers.personas import personasCRUD
 from .Controllers.manzanas import manzanasCRUD
 from .Controllers.Roles import rolesCRUD
@@ -18,7 +18,7 @@ from .Reportes.excelView import reportExcel
 
 router = DefaultRouter()
 router.register(r'tipo_documento',tipo_documentoCRUD )
-router.register(r'Users',UsersCRUD )
+router.register(r'Usuarias',UsuariasCRUD )
 router.register(r'personas',personasCRUD )
 router.register(r'manzanas',manzanasCRUD )
 router.register(r'Roles',rolesCRUD )

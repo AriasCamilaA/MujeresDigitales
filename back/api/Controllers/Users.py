@@ -1,14 +1,14 @@
 from rest_framework import viewsets
-from ..models import Users
-from .serializers import UsersSerializer
+from ..models import Usuarias
+from .serializers import UsuariasSerializer
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import login, authenticate
 from django.http import JsonResponse
 
-class UsersCRUD(viewsets.ModelViewSet):
-    queryset = Users.objects.all()
-    serializer_class = UsersSerializer
+class UsuariasCRUD(viewsets.ModelViewSet):
+    queryset = Usuarias.objects.all()
+    serializer_class = UsuariasSerializer
 #ignorar el token de crsf temporalmente mientras se autentica el login 
 @csrf_exempt
 #definicion de clase para realizar la autenticacion con email reemplazando el username
