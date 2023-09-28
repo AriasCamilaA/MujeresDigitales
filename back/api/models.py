@@ -80,7 +80,7 @@ class Municipios(models.Model):
 class Personas(models.Model):
     id_persona = models.IntegerField(primary_key=True)
     id_tipo_documento_fk = models.ForeignKey('TipoDocumento', models.DO_NOTHING, db_column='id_tipo_documento_fk', blank=True, null=True)
-    id_usuaria = models.ForeignKey('Usuarias', models.DO_NOTHING, db_column='id_usuaria', blank=True, null=True)
+    id_usuaria = models.ForeignKey('Users', models.DO_NOTHING, db_column='id_usuaria', blank=True, null=True)
     nombres_persona = models.CharField(max_length=50, blank=True, null=True)
     apellidos_personas = models.CharField(max_length=50, blank=True, null=True)
     telefono_persona = models.BigIntegerField(blank=True, null=True)
@@ -140,7 +140,7 @@ class TiposServicios(models.Model):
         db_table = 'tipos_servicios'
 
 
-class Usuarias(AbstractBaseUser, PermissionsMixin):
+class Users(AbstractBaseUser, PermissionsMixin):
     id_usuaria = models.AutoField(primary_key=True)
     email = models.CharField(max_length=50, blank=True, null=True, unique=True)
     password = models.CharField(max_length=200, blank=True, null=True)
@@ -156,5 +156,5 @@ class Usuarias(AbstractBaseUser, PermissionsMixin):
         super().save(*args, **kwargs)
 
     class Meta:
-        db_table = 'usuarias'
+        db_table = 'Users'
 

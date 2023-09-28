@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 #AUTHENTICATION_BACKENDS = ['api.backends.CustomModelBackend']
-AUTH_USER_MODEL ='api.Usuarias'
+AUTH_USER_MODEL ='api.Users'
 REST_FRAMEWORK ={
     'DEFAULT_AUTHENTICATION.CLASSES':(
         'rest_framework_simplejwt',
@@ -40,7 +40,7 @@ REST_FRAMEWORK ={
     )
 }
 
-#AUTH_USER_MODEL ='api.Usuarias'
+#AUTH_USER_MODEL ='api.Users'
 
 MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

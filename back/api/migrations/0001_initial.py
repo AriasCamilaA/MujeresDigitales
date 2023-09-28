@@ -69,7 +69,7 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='Usuarias',
+            name='Users',
             fields=[
                 ('id_usuaria', models.AutoField(primary_key=True, serialize=False)),
                 ('email', models.CharField(blank=True, max_length=50, null=True)),
@@ -78,7 +78,7 @@ class Migration(migrations.Migration):
                 ('id_rol_fk', models.ForeignKey(blank=True, db_column='id_rol_fk', null=True, on_delete=django.db.models.deletion.DO_NOTHING, to='api.roles')),
             ],
             options={
-                'db_table': 'usuarias',
+                'db_table': 'Users',
             },
         ),
         migrations.CreateModel(
@@ -110,7 +110,7 @@ class Migration(migrations.Migration):
                 ('id_servicios_preferencia_dos', models.IntegerField(blank=True, null=True)),
                 ('estado', models.IntegerField(blank=True, null=True)),
                 ('id_tipo_documento_fk', models.ForeignKey(blank=True, db_column='id_tipo_documento_fk', null=True, on_delete=django.db.models.deletion.DO_NOTHING, to='api.tipodocumento')),
-                ('id_usuaria', models.ForeignKey(blank=True, db_column='id_usuaria', null=True, on_delete=django.db.models.deletion.DO_NOTHING, to='api.usuarias')),
+                ('id_usuaria', models.ForeignKey(blank=True, db_column='id_usuaria', null=True, on_delete=django.db.models.deletion.DO_NOTHING, to='api.Users')),
             ],
             options={
                 'db_table': 'personas',
