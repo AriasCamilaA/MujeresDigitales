@@ -43,7 +43,6 @@ function App() {
 
         {/* Envuelve Footer en un Route */}
       </Routes>
-      
       <Footer/>
     </BrowserRouter>
   );

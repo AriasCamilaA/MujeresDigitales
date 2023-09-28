@@ -27,8 +27,7 @@ const Login = () => {
             </div>
 
               <div className="d-grid">
-                <Link to="/" className="btn btn_outline_moradoOscuro"><i className="fas fa-sign-in-alt"></i>Iniciar Sesión</Link>
-                {/* <button type="submit" className="btn btn_outline_moradoOscuro">Iniciar Sesión <i className="fas fa-sign-in-alt"></i></button> */}
+                <button type="submit" className="btn btn_outline_moradoOscuro">Iniciar Sesión <i className="fas fa-sign-in-alt"></i></button>
               </div>
             </form>
           </div>
